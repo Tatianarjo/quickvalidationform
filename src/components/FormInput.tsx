@@ -1,5 +1,6 @@
 import "./formInput.css"
 
+
 const FormInput = (props: { placeholder: string | undefined }) => {
     return (
         <div className="formInput">
