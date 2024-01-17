@@ -11,12 +11,13 @@ function App() {
 
   return <div style={{
     position: "relative",
-    background: "purple",
+    background: "hotpink",
     border: "5px dotted pink",
     padding: "2rem",
     margin: "1rem",
     borderRadius: "5rem",
     fontFamily: "Arial",
+    fontWeight: "bold"
 
   }}>
 
