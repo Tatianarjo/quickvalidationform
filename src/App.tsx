@@ -1,13 +1,13 @@
+import { AccountForm } from './AccountForm';
+import { AddressForm } from './AddressForm';
 import './App.css';
 import FormInput from './components/FormInput';
 import { useMulti } from './useMulti';
-
+import { UserForm } from './UserForm';
 
 function App() {
-  const { steps, currentStepIndex, step, isFirstStep, back, next, isLastStep } = useMulti([
-    <div>One</div>,
-    <div>Two</div>,
-  ])
+  const { steps, currentStepIndex, step, isFirstStep, back, next, isLastStep } = 
+  useMulti([<UserForm />, <AddressForm />, <AccountForm />])
 
   return <div style={{
     position: "relative",
