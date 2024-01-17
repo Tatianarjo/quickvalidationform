@@ -1,14 +1,14 @@
-import  './App.css';
+import './App.css';
 import FormInput from './components/FormInput';
 import { useMulti } from './useMulti';
 
 
 function App() {
-  const { steps, currentStepIndex, step } = useMulti([
-  <div>One</div>, 
-  <div>Two</div>,
-])
-  
+  const { steps, currentStepIndex, step, isFirstStep, back, next, isLastStep } = useMulti([
+    <div>One</div>,
+    <div>Two</div>,
+  ])
+
   return <div style={{
     position: "relative",
     background: "purple",
@@ -21,23 +21,29 @@ function App() {
   }}>
 
     <form>
-      <div style={{ top: ".5rem", right: "55rem",}}>
-       { currentStepIndex + 1 } / {steps.length}
-      <FormInput placeholder="Enter city, point of interest, or address"/>
-      <FormInput placeholder="Select your dates"/>
-      <FormInput placeholder="Rooms"/>
-      <FormInput placeholder="Attendees" />
+      <div style={{ top: ".5rem", right: "55rem", }}>
+        {currentStepIndex + 1} / {steps.length}
+        <FormInput placeholder="Enter city, point of interest, or address" />
+        <FormInput placeholder="Select your dates" />
+        <FormInput placeholder="Rooms" />
+        <FormInput placeholder="Attendees" />
       </div>
       {step}
       <div style={{
-        marginTop: "1rem", 
-        display: "flex", 
-        gap: ".5rem", 
+        marginTop: "1rem",
+        display: "flex",
+        gap: ".5rem",
         justifyContent: "flex-end",
-        }}
-        >
-          <button>Back</button>
-          <button>Next</button>
+      }}
+      >
+        {!isFirstStep && (
+          <button type="button" onClick={back}>
+            Back
+          </button>
+        )}
+        <button type="button" onClick={next}>
+          {isLastStep ? "Finish" : "Next"}
+          </button>
       </div>
     </form>
   </div>
