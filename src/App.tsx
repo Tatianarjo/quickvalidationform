@@ -4,7 +4,7 @@ import { useMulti } from './useMulti';
 
 
 function App() {
-  const { steps, currentStepIndex } = useMulti([
+  const { steps, currentStepIndex, step } = useMulti([
   <div>One</div>, 
   <div>Two</div>,
 ])
@@ -27,6 +27,17 @@ function App() {
       <FormInput placeholder="Select your dates"/>
       <FormInput placeholder="Rooms"/>
       <FormInput placeholder="Attendees" />
+      </div>
+      {step}
+      <div style={{
+        marginTop: "1rem", 
+        display: "flex", 
+        gap: ".5rem", 
+        justifyContent: "flex-end",
+        }}
+        >
+          <button>Back</button>
+          <button>Next</button>
       </div>
     </form>
   </div>
